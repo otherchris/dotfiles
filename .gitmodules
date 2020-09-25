@@ -1,0 +1,6 @@
+[submodule "vim/pack/otherchris/start/vim-surround"]
+	path = vim/pack/otherchris/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/pack/otherchris/start/ctrlp"]
+	path = vim/pack/otherchris/start/ctrlp
+	url = git@github.com:kien/ctrlp.vim.git
