@@ -93,3 +93,10 @@ let g:syntastic_aggregate_errors = 1
 colorscheme jellybeans
 
 let g:NERDTreeWinPos = "right"
+
+" neomake
+let g:neomake_elixir_enabled_makers = ['credo']
+autocmd! BufWritePost * Neomake
+
+autocmd BufWritePost *.exs silent :!mix format %
+autocmd BufWritePost *.ex silent :!mix format %
