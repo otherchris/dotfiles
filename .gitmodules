@@ -49,3 +49,6 @@
 [submodule "vim/pack/otherchris/start/neomake"]
 	path = vim/pack/otherchris/start/neomake
 	url = https://github.com/neomake/neomake.git
+[submodule "vim/pack/otherchris/start/taboo"]
+	path = vim/pack/otherchris/start/taboo
+	url = https://github.com/gcmt/taboo.vim.git
