@@ -119,7 +119,10 @@ export NVM_DIR="$HOME/.nvm"
 
 . $HOME/.asdf/asdf.sh
 
-alias tdy='jrnl -from today --export boxed'
+alias tdy='jrnl work -from today --export boxed'
 alias gnb='git checkout -b'
+alias wrkj='jrnl work && pushd ~/jrnls && git add . && git commit -m "update work journal" && git push && popd'
+alias blogj='jrnl blog && pushd ~/jrnls && git add . && git commit -m "update work journal" && git push && popd'
+
 source ~/.zshrc-secret
 

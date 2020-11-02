@@ -98,10 +98,10 @@ let g:NERDTreeWinPos = "right"
 let g:neomake_elixir_enabled_makers = ['credo']
 autocmd! BufWritePost * Neomake
 
-autocmd BufWritePost *.exs silent :!mix format %
-autocmd BufWritePost *.ex silent :!mix format %
+autocmd BufWritePost *.exs :!mix format %
+autocmd BufWritePost *.ex :!mix format %
 
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("e")': ['='],
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }

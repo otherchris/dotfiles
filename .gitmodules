@@ -52,3 +52,9 @@
 [submodule "vim/pack/otherchris/start/taboo"]
 	path = vim/pack/otherchris/start/taboo
 	url = https://github.com/gcmt/taboo.vim.git
+[submodule "vim/pack/otherchris/start/vim-gitgutter"]
+	path = vim/pack/otherchris/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
