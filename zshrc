@@ -111,18 +111,10 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 15)
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 . $HOME/.asdf/asdf.sh
 
-alias tdy='jrnl work -from today --export boxed'
-alias gnb='git checkout -b'
-alias wrkj='jrnl work && pushd ~/jrnls && git add . && git commit -m "update work journal" && git push && popd'
-alias blogj='jrnl blog && pushd ~/jrnls && git add . && git commit -m "update work journal" && git push && popd'
+alias vim=nvim
 
 source ~/.zshrc-secret
+
 
