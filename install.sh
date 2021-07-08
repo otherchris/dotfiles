@@ -2,9 +2,10 @@
 
 set -euo pipefail
 
-cp -r config ~/.config
-cp -r tmux ~/.tmux
+cp -R config ~/.config
+cp -R tmux ~/.tmux
 cp tmux.conf ~/.tmux.conf
 cp zshrc ~/.zshrc
 
 source ~/.zshrc
+nvim --cmd PlugInstall -c 'qa!'
