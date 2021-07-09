@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-cp -Rf config ~/
-mv ~/config ~/.config
+cp -Rf config/* ~/.config
 cp -Rf tmux ~/.tmux
 cp tmux.conf ~/.tmux.conf
 cp zshrc ~/.zshrc

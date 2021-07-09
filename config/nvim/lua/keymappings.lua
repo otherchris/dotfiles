@@ -1,20 +1,25 @@
 local map = vim.api.nvim_set_keymap
 
-map('n', 'n', 'h', { noremap = true })
-map('n', 'e', 'j', { noremap = true })
-map('n', 'i', 'k', { noremap = true })
-map('n', 'o', 'l', { noremap = true })
+local noremap = { noremap = true }
+local silent = { noremap = true, silent = true }
 
-map('n', 'I', 'i', { noremap = true })
-map('n', 'j', 'i', { noremap = true })
-map('n', 'h', 'o', { noremap = true })
-map('n', 'H', 'O', { noremap = true })
-map('n', 'l', 'nzz', { noremap = true })
+map('n', 'n', 'h', noremap)
+map('n', 'e', 'j', noremap)
+map('n', 'i', 'k', noremap)
+map('n', 'o', 'l', noremap)
+
+map('n', 'I', 'i', noremap)
+map('n', 'j', 'i', noremap)
+map('n', 'h', 'o', noremap)
+map('n', 'H', 'O', noremap)
+map('n', 'l', 'nzz', noremap)
 
 -- auto close delimiters
-map('i', '(', '()<left>', { silent = true, noremap = true })
-map('i', '[', '[]<left>', { silent = true, noremap = true })
-map('i', '{', '{}<left>', { silent = true, noremap = true })
+map('i', '(', '()<left>', silent)
+map('i', '[', '[]<left>', silent)
+map('i', '{', '{}<left>', silent)
 
 -- open fzf
-map('<leader>f', ':FZF<CR>', { silent = true, noremap = true })
+map('n', '<leader>f', ':FZF<cr>', silent)
+map('n', '<leader>w', ':NvimTreeOpen<cr>', silent)
+
