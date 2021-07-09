@@ -94,3 +94,5 @@ lspconfig.efm.setup({
   filetypes = {"elixir"}
 })
 
+require'lspconfig'.html.setup{}
+

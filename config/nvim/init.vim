@@ -1,5 +1,4 @@
 luafile ~/.config/nvim/lua/init.lua
 so ~/.config/nvim/global-plugins.vim
 so ~/.config/nvim/global-preferences.vim
-so ~/.config/nvim/ls.lua
 
