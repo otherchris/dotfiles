@@ -118,7 +118,7 @@ alias vim=nvim
 source ~/.zshrc-secret
 
 # Check that we have the aliases we expect
-filename="/Users/chriscaragianis/.aliases"
+filename="$HOME/.aliases"
 
 COMM=$(comm -12 <(alias | sort) <(sort $filename) | wc -l | awk '{ print $1 }')
 EXPECTED=$(wc -l $filename | awk '{ print $1; }')
