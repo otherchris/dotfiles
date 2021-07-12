@@ -2,8 +2,11 @@
 
 set -euo pipefail
 
-cp -Rf config/* ~/.config
-cp -Rf tmux ~/.tmux
+if [[ ! -d ~/.config ]]; then mkdir ~/.config; fi
+if [[ ! -d ~/.tmux ]]; then mkdir ~/.tmux; fi
+
+cp -R -f config/* ~/.config
+cp -R -f tmux ~/.tmux
 cp tmux.conf ~/.tmux.conf
 cp zshrc ~/.zshrc
 cp aliases ~/.aliases
