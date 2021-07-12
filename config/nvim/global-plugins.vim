@@ -15,5 +15,12 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mfussenegger/nvim-lint'
 Plug 'tpope/vim-commentary'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc-eslint'
+Plug 'maxmellon/vim-jsx-pretty'
 
 call plug#end()

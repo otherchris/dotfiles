@@ -1,6 +1,4 @@
 require('settings')
 require('keymappings')
-require('lsp/install')
-require('lsp/tsserver')
 -- require('ls')
 -- require('lint-config')

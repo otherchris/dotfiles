@@ -6,7 +6,7 @@ local function make_config()
     -- enable snippet support
     capabilities = capabilities,
     -- map buffer local keybindings when the language server attaches
-    -- TODO: on_attach = on_attach,
+    on_attach = on_attach,
   }
 end
 
