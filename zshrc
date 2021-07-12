@@ -117,16 +117,3 @@ alias vim=nvim
 
 source ~/.zshrc-secret
 
-# Check that we have the aliases we expect
-filename="$HOME/.aliases"
-
-COMM=$(comm -12 <(alias | sort) <(sort $filename) | wc -l | awk '{ print $1 }')
-EXPECTED=$(wc -l $filename | awk '{ print $1; }')
-
-if [[ $COMM == $EXPECTED ]]
-then
-  echo "Aliases ✅"
-else
-  echo "Bad aliases! ❌"
-  exit 1
-fi
