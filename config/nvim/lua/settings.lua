@@ -37,7 +37,6 @@ vim.o.lazyredraw      = true                        --- Makes macros faster & pr
 vim.o.wildignore      = "*node_modules/**"          --- Don't search inside Node.js modules (works for gutentag)
 vim.o.scrolloff       = 8                           --- Always keep space when scrolling to bottom/top edge
 vim.o.viminfo         = "'1000"                     --- Increase the size of file history
-vim.o.termguicolors   = true                        --- Correct terminal colors
 vim.o.signcolumn      = "yes"
 vim.o.completeopt     = "menuone,noselect"
 
