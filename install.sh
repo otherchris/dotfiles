@@ -12,7 +12,7 @@ then
   git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 fi
 
-if [[ ! ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]]
+if [[ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]]
 then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
@@ -26,6 +26,7 @@ cp tmux.conf $HOME/.tmux.conf
 cp zshrc $HOME/.zshrc
 cp aliases $HOME/.aliases
 cp tool-versions $HOME/.tool-versions
+cp p10k.zsh $HOME/.p10k.zsh
 
 cd $HOME
 tools=$(comm -13 <(asdf plugin list) <(cat $HOME/.tool-versions | awk '{ print $1 }'))
