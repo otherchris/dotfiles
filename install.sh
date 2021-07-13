@@ -2,19 +2,28 @@
 
 set -euo pipefail
 
+# Install zsh
 if [[ ! -d $HOME/.oh-my-zsh ]]
 then
-  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -
 fi
 
+# Install asdf
 if [[ ! -d $HOME/.asdf ]]
 then
   git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 fi
 
+# Install powerlevel10k
 if [[ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]]
 then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
+
+# Install vim-plug
+if [[ ! -f $HOME/.local/share/nvim/site/autoload/plug.vim ]]
+then
+  curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 if [[ ! -d $HOME/.config ]]; then mkdir $HOME/.config; fi
