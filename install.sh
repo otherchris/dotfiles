@@ -7,6 +7,11 @@ then
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 fi
 
+if [[ ! ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]]
+then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
+
 if [[ ! -d $HOME/.config ]]; then mkdir $HOME/.config; fi
 if [[ ! -d $HOME/.tmux ]]; then mkdir $HOME/.tmux; fi
 
