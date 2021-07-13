@@ -28,6 +28,12 @@ cp aliases $HOME/.aliases
 cp tool-versions $HOME/.tool-versions
 
 cd $HOME
+tools=$(comm -13 <(asdf plugin list) <(cat $HOME/.tool-versions | awk '{ print $1 }'))
+for tool in $tools
+do
+  asdf plugin add $tool
+done
+
 asdf install
 
 nvim --cmd PlugInstall -c 'qa!'
