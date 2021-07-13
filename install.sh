@@ -2,16 +2,20 @@
 
 set -euo pipefail
 
-if [[ ! -d ~/.config ]]; then mkdir ~/.config; fi
-if [[ ! -d ~/.tmux ]]; then mkdir ~/.tmux; fi
+if [[ ! -d $HOME/.oh-my-zsh ]]
+then
+  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+fi
 
-cp -R -f config/* ~/.config
-cp -R -f tmux ~/.tmux
-cp tmux.conf ~/.tmux.conf
-cp zshrc ~/.zshrc
-cp aliases ~/.aliases
+if [[ ! -d $HOME/.config ]]; then mkdir $HOME/.config; fi
+if [[ ! -d $HOME/.tmux ]]; then mkdir $HOME/.tmux; fi
 
-source ~/.zshrc
+cp -R -f config/* $HOME/.config
+cp -R -f tmux $HOME/.tmux
+cp tmux.conf $HOME/.tmux.conf
+cp zshrc $HOME/.zshrc
+cp aliases $HOME/.aliases
+
 nvim --cmd PlugInstall -c 'qa!'
 
 npm i -g vscode-langservers-extracted
