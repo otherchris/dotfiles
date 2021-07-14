@@ -1,3 +1,4 @@
+vim.g.mapleader       = ','
 vim.o.hidden          = true                        --- Required to keep multiple buffers open multiple buffers
 vim.o.encoding        = "utf-8"                     --- The encoding displayed
 vim.o.fileencoding    = "utf-8"                     --- The encoding written to file

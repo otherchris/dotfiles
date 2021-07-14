@@ -4,15 +4,21 @@ local lspconfig = require("lspconfig")
 -- capabilities we send to the language server to let them know we want snippets.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
 
--- Setup our autocompletion. These configuration options are the default ones
--- copied out of the documentation.
+-- Setup our autocompletion.
 require "compe".setup {
   enabled = true,
   autocomplete = true,
   debug = false,
   min_length = 1,
-  preselect = "disabled",
+  preselect = "enable",
   throttle_time = 80,
   source_timeout = 200,
   incomplete_delay = 400,
@@ -51,9 +57,6 @@ local on_attach = function(_, bufnr)
   -- around and never converted them. Instead of converting them
   -- now, I'm leaving them as they are for this article because this is
   -- what I actually use, and hey, it works ¯\_(ツ)_/¯.
-  vim.cmd [[imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
-  vim.cmd [[smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
-
   vim.cmd [[imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
   vim.cmd [[smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
   vim.cmd [[imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
@@ -66,33 +69,9 @@ local on_attach = function(_, bufnr)
   vim.cmd [[inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })]]
 end
 
--- Finally, let's initialize the Elixir language server
-
--- Replace the following with the path to your installation
-local path_to_elixirls = vim.fn.expand("~/code/elixir-ls/rel/language_server.sh")
-
-lspconfig.elixirls.setup({
-  cmd = { "/usr/local/bin/elixir-ls/language_server.sh" },
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    elixirLS = {
-      -- I choose to disable dialyzer for personal reasons, but
-      -- I would suggest you also disable it unless you are well
-      -- aquainted with dialzyer and know how to use it.
-      dialyzerEnabled = false,
-      -- I also choose to turn off the auto dep fetching feature.
-      -- It often get's into a weird state that requires deleting
-      -- the .elixir_ls directory and restarting your editor.
-      fetchDeps = false
-    }
-  }
+require'lspconfig'.tsserver.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = true
+    on_attach(client)
+  end
 })
-lspconfig.efm.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = {"elixir"}
-})
-
-require'lspconfig'.html.setup{}
-

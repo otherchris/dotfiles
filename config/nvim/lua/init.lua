@@ -1,4 +1,4 @@
 require('settings')
 require('keymappings')
--- require('ls')
+require('lsp')
 -- require('lint-config')
