@@ -3,7 +3,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'aonemd/kuroi.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'neovim/nvim-lspconfig'

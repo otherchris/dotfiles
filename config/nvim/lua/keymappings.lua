@@ -31,6 +31,6 @@ map('i', '[', '[]<left>', silent)
 map('i', '{', '{}<left>', silent)
 
 -- open fzf
-map('n', '<leader>f', ':FZF<cr>', silent)
+map('n', '<leader>f', ':GFiles --exclude-standard --others --cached<cr>', silent)
 map('n', '<leader>w', ':NvimTreeOpen<cr>', silent)
 
