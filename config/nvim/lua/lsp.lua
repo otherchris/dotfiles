@@ -105,10 +105,17 @@ nvim_lsp.tsserver.setup {
   end
 }
 
+lspconfig.dockerls.setup{}
+
 -- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
 -- unzip elixir-ls.zip -d /path/to/elixir-ls
 lspconfig.elixirls.setup {
   cmd = { "/Users/chriscaragianis/.elixir-ls/language_server.sh" };
+  settings = {
+    elixirLS = {
+      projectDir = { "server/world_api", "" };
+    };
+  };
   on_attach = function(client)
     on_attach(client)
   end
@@ -129,8 +136,15 @@ lspconfig.cssls.setup {
 
 local filetypes = {
   javascript = "eslint",
+  javascriptreact = "eslint",
   typescript = "eslint",
   typescriptreact = "eslint",
+}
+
+local formatFiletypes = {
+  javascript = "prettier",
+  typescript = "prettier",
+  typescriptreact = "prettier",
 }
 
 local linters = {
@@ -154,22 +168,16 @@ local linters = {
 }
 
 local formatters = {
-  prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}}
-}
-
-local formatFiletypes = {
-  javascript = "prettier",
-  typescript = "prettier",
-  typescriptreact = "prettier"
+  prettier = {command = "npx", args = {"prettier", "--stdin-filepath", "%filepath"}}
 }
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = vim.tbl_keys(filetypes),
+  filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact"},
   init_options = {
     filetypes = filetypes,
+    formatFiletypes = formatFiletypes,
     linters = linters,
     formatters = formatters,
-    formatFiletypes = formatFiletypes
   }
 }

@@ -1,5 +1,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'jvirtanen/vim-hcl'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
