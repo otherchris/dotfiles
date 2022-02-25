@@ -98,6 +98,8 @@ local on_attach = function(client, bufnr)
 end
 end
 
+lspconfig.pylsp.setup{}
+
 nvim_lsp.tsserver.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
@@ -139,12 +141,15 @@ local filetypes = {
   javascriptreact = "eslint",
   typescript = "eslint",
   typescriptreact = "eslint",
+  python = "pylint"
 }
 
 local formatFiletypes = {
   javascript = "prettier",
   typescript = "prettier",
   typescriptreact = "prettier",
+  elixir = "format",
+  python = "black"
 }
 
 local linters = {
@@ -168,7 +173,8 @@ local linters = {
 }
 
 local formatters = {
-  prettier = {command = "npx", args = {"prettier", "--stdin-filepath", "%filepath"}}
+  prettier = {command = "npx", args = {"prettier", "--stdin-filepath", "%filepath"}},
+  format = {command = "mix", args = {"format"}}
 }
 
 nvim_lsp.diagnosticls.setup {

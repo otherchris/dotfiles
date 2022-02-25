@@ -1,5 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'mfussenegger/nvim-lint'
 Plug 'jvirtanen/vim-hcl'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
