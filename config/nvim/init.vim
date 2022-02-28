@@ -14,5 +14,4 @@ endif
 "
 " strip trailing spaces on save
 au BufWritePre * :%s/\s\+$//e
-" hacky python linting
 
