@@ -1,7 +1,7 @@
-require('settings')
-require('keymappings')
-require('lsp')
-require('completion')
-require('nvimtree')
+require("settings")
+require("keymappings")
+require("lsp")
+require("completion")
+require("nvimtree")
+require("lsp_signature").setup(cfg)
 -- require('lint-config')
-
