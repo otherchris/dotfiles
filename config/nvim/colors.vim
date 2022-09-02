@@ -1,3 +1,2 @@
-set termguicolors
-colorscheme kuroi
+colorscheme onedark
 

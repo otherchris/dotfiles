@@ -29,6 +29,7 @@ fi
 if [[ ! -d $HOME/.config ]]; then mkdir $HOME/.config; fi
 if [[ ! -d $HOME/.tmux ]]; then mkdir $HOME/.tmux; fi
 
+rm -rf $HOME/.config/nvim/*
 cp -R -f config/* $HOME/.config
 cp -R -f tmux $HOME/.tmux
 cp tmux.conf $HOME/.tmux.conf

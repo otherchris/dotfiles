@@ -4,6 +4,11 @@ so ~/.config/nvim/colors.vim
 so ~/.config/nvim/nvimtree-config.vim
 so ~/.config/nvim/closetag-config.vim
 
+" Tidal
+let g:tidal_target = "terminal"
+
+syntax on
+
 " Escape terminal
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
